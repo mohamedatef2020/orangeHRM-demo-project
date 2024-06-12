@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-12T20:28:37.199Z",
+    "end": "2024-06-12T20:28:46.795Z",
+    "duration": 9596,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "657eff8e-b51e-4d59-8416-f0be6242b82b",
+      "title": "",
+      "fullFile": "cypress/e2e/recruitmentValidations.cy.js",
+      "file": "cypress/e2e/recruitmentValidations.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "54bd0a36-aa3d-4e87-8dda-718c117da5d3",
+          "title": "Validate Recruitment filters",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User should be able to filter the candidates based on the vacancy",
+              "fullTitle": "Validate Recruitment filters User should be able to filter the candidates based on the vacancy",
+              "timedOut": null,
+              "duration": 9453,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_recruitmentPage.recruitmentPage.clickRecruitmentMenuItem();\n_recruitmentPage.recruitmentPage.clickVacancyFilter();\n_recruitmentPage.recruitmentPage.selectVacancyOption(_testData.testData.Vacancy);\ncy.intercept('GET', '**/recruitment/candidates?**').as('getCandidatesRequest');\n_recruitmentPage.recruitmentPage.clickSubmit();\n_recruitmentPage.recruitmentPage.waitForLoadingSpinnerToFade();\ncy.wait('@getCandidatesRequest').then(req => {\n  const recordsCount = req.response.body.data.length;\n  [...Array(recordsCount).keys()].forEach(index => {\n    _recruitmentPage.recruitmentPage.verifyCandidatePosition(index, _testData.testData.Vacancy);\n  });\n});",
+              "err": {},
+              "uuid": "facf13f9-b6c9-4c68-b375-448ca7332ae7",
+              "parentUUID": "54bd0a36-aa3d-4e87-8dda-718c117da5d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "facf13f9-b6c9-4c68-b375-448ca7332ae7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9453,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
