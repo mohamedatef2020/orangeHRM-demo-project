@@ -68,3 +68,6 @@ This will first clean up any existing reports, then run the tests, merge the rep
 This project includes two test spec files that define a few automated tests for specific functionalities of the OrangeHRM demo application.
 
 These tests demonstrate Cypress's ability to automate user interactions and validate application behavior. The project structure, utilizing the Page Object Model (POM) and data files, promotes the maintainability and reusability of test code.
+
+### Branches
+When using `Master` you will be able to execute native cypress tests while if you switched to the `bdd-version` branch you will find same tests written in BDD style using Cucumber in two feature files
