@@ -6,10 +6,9 @@
   "scripts": {
     "test": "npx cypress run",
     "open-cypress": "npx cypress open",
-    "generate-report": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json && npx mochawesome-report-generator cypress/reports/merged-report.json -o cypress/reports/html",
-    "clean-reports": "rimraf cypress/reports",
-    "open-report": "npx open-cli cypress/reports/html/merged-report.html",
-    "test-and-report": "npm run clean-reports && npm run test && npm run generate-report && npm run open-report"
+    "generate-report": "node ./generateHTMLReport.js",
+    "open-report": "npx open-cli report/HTML/cucumber_report.html",
+    "test-and-report": "npm run test && npm run generate-report && npm run open-report"
   },
   "keywords": [],
   "author": {

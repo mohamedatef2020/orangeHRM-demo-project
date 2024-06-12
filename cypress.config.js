@@ -20,8 +20,8 @@ module.exports = defineConfig({
       html: false,
       json: true,
     },
-    setupNodeEvents(on, config) {
-      addCucumberPreprocessorPlugin(on, config);
+    async setupNodeEvents(on, config) {
+      await addCucumberPreprocessorPlugin(on, config);
       on('file:preprocessor', browserify.default(config));
 
       return config;
