@@ -2,14 +2,15 @@
 
 import { loginPage } from '../support/POMFiles/loginPage.js'
 import { nationalitiesPage } from '../support/POMFiles/netionalitiesPage.js';
-import { recruitmentPage } from '../support/POMFiles/recruitmentPage.js';
+import { credentials } from '../support/dataFiles/credentials.js'
+import { testData } from '../support/dataFiles/testData'
 
 describe('Validate Nationalities tab', () => {
   beforeEach(()=> {
     cy.visit('/login');
 
-    loginPage.fillUserName('Admin');
-    loginPage.fillPassword('admin123');
+    loginPage.fillUserName(credentials.userName);
+    loginPage.fillPassword(credentials.password);
     loginPage.clickLogin();
 
     nationalitiesPage.clickAdminTab();
@@ -20,7 +21,6 @@ describe('Validate Nationalities tab', () => {
 
     nationalitiesPage.fillNationalityFormWithRequest('@getNationalitiesRequest', 0);
     nationalitiesPage.clickSubmitButton();
-    recruitmentPage.waitForLoadingSpinnerToFade();
   });
 
   it('User should be able to see the first 50 nationalities and the pagination component', () => {
@@ -52,9 +52,9 @@ describe('Validate Nationalities tab', () => {
     });
 
     nationalitiesPage.clickFirstEditButton();
-    nationalitiesPage.clearAndTypeNationalityName('001 The Galactic Republic');
+    nationalitiesPage.clearAndTypeNationalityName(testData.newNationalityName);
     nationalitiesPage.clickSubmitButton();
 
-    nationalitiesPage.verifyFirstNationalityName('001 The Galactic Republic');
+    nationalitiesPage.verifyFirstNationalityName(testData.newNationalityName);
   });
 })
